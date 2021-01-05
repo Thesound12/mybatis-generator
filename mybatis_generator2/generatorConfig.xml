@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+<classPathEntry location="D:\MAVEN\Repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"/>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/bjfu?serverTimezone=UTC"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--普通POJO-->
+        <javaModelGenerator targetPackage="com.bjfu.entity" targetProject="src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--mapper.xml-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.bjfu.dao" targetProject="src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="dept" domainObjectName="Dept">
+
+        </table>
+        <table tableName="emp" domainObjectName="Emp">
+
+        </table>
+        <table tableName="salgrade" domainObjectName="SalGrade">
+
+        </table>
+
+    </context>
+</generatorConfiguration>
