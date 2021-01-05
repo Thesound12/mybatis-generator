@@ -42,10 +42,19 @@ public class MybatisUseTest {
 
         DeptExample.Criteria criteria1 = deptExample.createCriteria();
         criteria1.andDnameLike("%A%");
-
         deptExample.or(criteria1);
 
         List<Dept> depts = deptMapper.selectByExample(deptExample);
+        for (Dept dept :
+                depts) {
+            System.out.println(dept);
+
+        }
+    }
+
+    @Test
+    public void test03() {
+        List<Dept> depts = deptMapper.selectByExample(null);
         for (Dept dept :
                 depts) {
             System.out.println(dept);
